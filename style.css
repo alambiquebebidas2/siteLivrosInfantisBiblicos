@@ -1,0 +1,847 @@
+/* ESTILO COMPLETO: FOCO MOBILE & CONVERSÃO
+   Histórias de Luz - 2026
+*/
+
+:root {
+    --primary: #27ae60;
+    --red: #c0392b;
+    --bg-light: #f8fbff;
+    --dark: #2d3436;
+    --white: #ffffff;
+}
+
+/* --- RESET & GERAL --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Quicksand', sans-serif; 
+    color: var(--dark); 
+    background: var(--bg-light); 
+    line-height: 1.4; 
+    text-align: center; 
+    overflow-x: hidden;
+}
+
+.container { padding: 0 20px; width: 100%; }
+
+/* Trava de Scroll (Cookies) */
+.stop-scroll { overflow: hidden; }
+
+/* --- MARKUPS DE IMAGENS (REDUZIDOS) --- */
+.main-logo { max-width: 90px; margin: 15px auto; }
+
+/* Imagens Secundárias (Garantia e Segurança) */
+.security-seal, .seal-small, .footer-seals img { 
+    max-width: 85px; 
+    margin: 10px auto; 
+    display: block;
+}
+
+.garantia-img { 
+    max-width: 65px; 
+    margin: 5px auto; 
+}
+
+/* Amostras de Bônus e Previews (Compactas) */
+.preview-grid img, .bonus-card img {
+    max-width: 130px;
+    height: auto;
+    margin: 0 auto 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Depoimentos Menores (Mobile First) */
+.testimonial-grid img {
+    max-width: 260px; /* Reduzido para não cansar o scroll */
+    width: 85%;
+    margin: 0 auto 15px;
+    border-radius: 10px;
+}
+
+/* --- TIPOGRAFIA & TÍTULOS --- */
+h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 900; width: 100%; }
+
+.headline { 
+    font-size: 1.5rem; 
+    line-height: 1.2; 
+    margin: 10px 0 20px; 
+    padding: 0 10px;
+}
+
+.highlight { color: var(--primary); }
+
+.section-title { font-size: 1.4rem; margin: 25px 0 10px; color: var(--dark); }
+.subtitle, .subtitle-subtitle { 
+    font-size: 1rem; 
+    color: #636e72; 
+    margin-bottom: 10px; 
+    font-weight: 400;
+}
+
+/* --- BOTÕES & CTA (COM RESPIRO) --- */
+.btn-main { 
+    display: block; 
+    background: var(--primary); 
+    color: var(--white); 
+    padding: 16px 20px; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-weight: 900; 
+    font-size: 1.1rem; 
+    max-width: 320px;
+    margin: 25px auto; /* Espaço total ao redor do botão */
+    box-shadow: 0 4px 0 #1e8449;
+    text-transform: uppercase;
+}
+
+.pulse { animation: pulseAnim 2s infinite; }
+@keyframes pulseAnim { 
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.04); } 
+}
+
+/* --- ESTRUTURA DE COLUNA ÚNICA (MOBILE) --- */
+.hero-grid, 
+.trust-grid, 
+.bonus-wrapper, 
+.testimonial-grid, 
+.preview-grid {
+    display: flex;
+    flex-direction: column; /* Tudo um abaixo do outro */
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Ajuste das listas de check */
+.check-list, .custom-list {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.check-list li, .custom-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* --- CARDS & BOXES --- */
+.pricing-card, .summary-box {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.price-box { margin: 15px 0; }
+.old-price { text-decoration: line-through; color: #b2bec3; font-size: 0.9rem; }
+.new-price { font-size: 2.5rem; color: var(--primary); font-weight: 900; display: block; }
+
+/* --- COMPONENTES ESPECÍFICOS --- */
+.top-bar { 
+    background: var(--red); 
+    color: var(--white); 
+    padding: 7px; 
+    font-size: 0.75rem; 
+    font-weight: 700; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+}
+
+/* --- AVISO DE COOKIES ATRAENTE (GLASSMORPHISM) --- */
+
+#cookie-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escurecido para foco total */
+    backdrop-filter: blur(8px); /* Efeito de desfoque no fundo do site */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cookie-card {
+    background: rgba(255, 255, 255, 0.95);
+    max-width: 450px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Ícone ou Ilustração no Cookie */
+.cookie-card::before {
+    content: "🍪";
+    font-size: 50px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.cookie-card h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #2d3436;
+    margin-bottom: 15px;
+    font-weight: 900;
+}
+
+.cookie-card p {
+    font-size: 0.95rem;
+    color: #636e72;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Botão Estilizado */
+.cookie-card .btn-accept {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    width: 100%;
+}
+
+.cookie-card .btn-accept:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Animação de entrada */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajuste Mobile */
+@media (max-width: 480px) {
+    .cookie-card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+    
+    .cookie-card h2 {
+        font-size: 1.3rem;
+    }
+}
+
+.sales-popup { 
+    position: fixed; bottom: -100px; left: 10px; right: 10px; 
+    background: var(--white); padding: 10px; border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.5s; 
+}
+.sales-popup.active { bottom: 15px; }
+
+/* --- RODAPÉ --- */
+footer { background: #1a1a1a; color: #636e72; padding: 30px 0; font-size: 0.75rem; }
+.piracy { color: var(--red); font-weight: 700; margin-bottom: 10px; }
+
+/* --- DESKTOP (VAI PARA GRID APENAS SE A TELA FOR GRANDE) --- */
+@media (min-width: 768px) {
+    .hero-grid { flex-direction: row; justify-content: center; }
+    .trust-grid, .bonus-wrapper { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .testimonial-grid img { max-width: 220px; }
+    .preview-grid { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+}
+
+
+/* --- AJUSTES PARA PC, NOTEBOOK E TABLET (SEM MEXER NO MOBILE) --- */
+
+@media (min-width: 768px) {
+    
+    /* 1. CENTRALIZAÇÃO DE IMAGENS E GRIDS */
+    .hero-grid, 
+    .trust-grid, 
+    .bonus-wrapper, 
+    .testimonial-grid, 
+    .preview-grid {
+        display: grid;
+        justify-items: center; /* Centraliza itens horizontalmente no grid */
+        align-items: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Ajuste de colunas para telas grandes */
+    .trust-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .bonus-wrapper { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .preview-grid { grid-template-columns: repeat(5, 1fr); gap: 15px; }
+    .testimonial-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+
+    /* Força centralização de qualquer imagem solta */
+    img {
+        display: block;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* 2. CORREÇÃO DOS BOTÕES (TAMANHO ELEGANTE) */
+    .btn-main {
+        max-width: 450px; /* Impede que o botão ocupe a tela toda no PC */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block;
+        padding: 20px 40px; /* Um pouco mais encorpado para Desktop */
+        font-size: 1.3rem;
+    }
+
+    /* 3. AJUSTES DE LARGURA DE IMAGENS ESPECÍFICAS NO PC */
+    .hero-image img {
+        max-width: 450px; /* Tamanho ideal para o kit no topo */
+    }
+
+    .trust-image {
+        max-width: 700px; /* Imagem da família centralizada e controlada */
+    }
+
+    .preview-grid img {
+        max-width: 180px; /* Amostras organizadas lado a lado */
+    }
+
+    .testimonial-grid img {
+        max-width: 350px; /* Prints de depoimentos maiores para leitura no PC */
+    }
+
+    /* 4. SELOS E GARANTIA (MANTENDO DISCRETOS NO DESKTOP) */
+    .security-seal, .garantia-img, .seal-small {
+        max-width: 120px;
+        margin: 20px auto !important;
+    }
+
+    /* 5. SEÇÃO DE RESUMO (SUMMARY BOX) */
+    .summary-box {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 40px;
+    }
+}
+
+/* Ajuste fino para Notebooks pequenos / Tablets em modo paisagem */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .preview-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-grid { grid-template-columns: 1fr; } /* Mantém foco central no tablet */
+}
+
+
+/* --- CONFIGURAÇÃO DE CORES POR DISPOSITIVO --- */
+
+/* 1. MOBILE (Padrão) - Rosa Bebê */
+body {
+    background-color: #FFF0F5 !important; /* Lavender Blush / Rosa Bebê */
+    transition: background-color 0.5s ease; /* Transição suave ao redimensionar */
+}
+
+/* 2. TABLET (Telas de 768px até 1024px) - Azul Bebê */
+@media (min-width: 768px) {
+    body {
+        background-color: #F0F8FF !important; /* Alice Blue / Azul Bebê */
+    }
+}
+
+/* 3. NOTEBOOK (Telas de 1025px até 1440px) - Verde Bebê */
+@media (min-width: 1025px) {
+    body {
+        background-color: #F0FFF0 !important; /* Honeydew / Verde Bebê */
+    }
+}
+
+/* 4. PC / MONITOR GRANDE (Telas acima de 1441px) - Roxo Bebê */
+@media (min-width: 1441px) {
+    body {
+        background-color: #F8F4FF !important; /* Magnolia / Roxo Bebê */
+    }
+}
+
+/* --- AJUSTE NAS SEÇÕES PARA TRANSPARÊNCIA --- */
+/* Isso garante que os backgrounds das seções não "tapem" a cor que você escolheu */
+.hero, .trust-reasons, .bonus-section, .summary-box {
+    background-color: transparent !important;
+}
+
+/* Se quiser que os cards continuem brancos para dar contraste com o fundo colorido: */
+.pricing-card, .cookie-card, .sales-popup {
+    background-color: #ffffff !important;
+}
+
+
+/* --- AJUSTE GERAL DE DEPOIMENTOS (TODAS AS TELAS) --- */
+
+/* Container dos depoimentos */
+.testimonial-grid {
+    display: grid;
+    gap: 15px; /* Espaço entre os prints */
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+/* Tamanho da imagem do depoimento */
+.testimonial-grid img {
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+/* --- RESPONSIVIDADE ESPECÍFICA --- */
+
+/* 1. MOBILE (Rosa Bebê) */
+@media (max-width: 767px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Um abaixo do outro */
+    }
+    .testimonial-grid img {
+        max-width: 240px; /* Reduzi ainda mais para o mobile */
+    }
+}
+
+/* 2. TABLET (Azul Bebê) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 por linha */
+    }
+    .testimonial-grid img {
+        max-width: 220px;
+    }
+}
+
+/* 3. NOTEBOOK (Verde Bebê) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 por linha */
+    }
+    .testimonial-grid img {
+        max-width: 200px; /* Bem compactos no notebook */
+    }
+}
+
+/* 4. PC DESKTOP (Roxo Bebê) */
+@media (min-width: 1441px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 por linha para economizar espaço */
+    }
+    .testimonial-grid img {
+        max-width: 180px;
+    }
+}
+
+/* Efeito de destaque ao passar o mouse (apenas Notebook e PC) */
+@media (min-width: 1025px) {
+    .testimonial-grid img:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+
+/* --- AJUSTE DEPOIMENTOS: COMPACTOS E PRÓXIMOS --- */
+
+.testimonial-grid {
+    display: grid;
+    /* Reduzi o espaço entre as imagens para 8px para ficarem bem juntas */
+    gap: 8px; 
+    justify-content: center;
+    align-items: start;
+    margin: 15px auto;
+    padding: 0 10px;
+}
+
+.testimonial-grid img {
+    height: auto;
+    border-radius: 8px; /* Borda levemente menor para combinar com o tamanho */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* 1. MOBILE (Rosa Bebê) - 2 por linha para economizar muito espaço */
+@media (max-width: 767px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr); /* Agora 2 depoimentos lado a lado no mobile */
+    }
+    .testimonial-grid img {
+        max-width: 100%; /* Ajusta ao tamanho da coluna */
+    }
+}
+
+/* 2. TABLET (Azul Bebê) - 3 por linha */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .testimonial-grid img {
+        max-width: 180px;
+    }
+}
+
+/* 3. NOTEBOOK (Verde Bebê) - 4 por linha */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .testimonial-grid img {
+        max-width: 160px;
+    }
+}
+
+/* 4. PC DESKTOP (Roxo Bebê) - 5 por linha */
+@media (min-width: 1441px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .testimonial-grid img {
+        max-width: 150px;
+    }
+}
+
+/* Efeito Hover para leitura no PC */
+@media (min-width: 1025px) {
+    .testimonial-grid img:hover {
+        transform: scale(1.1); /* Zoom um pouco maior para facilitar a leitura ao passar o mouse */
+        z-index: 10;
+        position: relative;
+    }
+}
+
+
+/* --- AVISO DE COOKIES COM TRANSPARÊNCIA EQUILIBRADA --- */
+
+#cookie-overlay {
+    position: fixed;
+    inset: 0;
+    /* Reduzido de 0.85 para 0.45: Agora o site aparece muito mais ao fundo */
+    background: rgba(0, 0, 0, 0.45); 
+    /* Reduzi o desfoque para 4px: Permite ver as formas e cores do site claramente */
+    backdrop-filter: blur(4px); 
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cookie-card {
+    background: #ffffff; 
+    max-width: 420px;
+    width: 100%;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    /* Sombra forte para o card saltar sobre o fundo visível */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); 
+    border: 1px solid #ddd;
+    animation: slideUp 0.4s ease-out;
+}
+
+.cookie-card::before {
+    content: "🍪";
+    font-size: 50px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.cookie-card h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #1d1d1f;
+    margin-bottom: 12px;
+    font-weight: 900;
+}
+
+.cookie-card p {
+    font-size: 0.95rem;
+    color: #4b4b4b;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Botão Sólido e Chamativo */
+.cookie-card .btn-accept {
+    background: #27ae60;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    box-shadow: 0 4px 0 #1e8449;
+    transition: all 0.2s ease;
+}
+
+.cookie-card .btn-accept:hover {
+    transform: translateY(-2px);
+    background: #2ecc71;
+    box-shadow: 0 6px 0 #27ae60;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+/* --- POPUP DE VENDAS LATERAL (NOTIFICAÇÃO) --- */
+
+#sales-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Posicionado no canto inferior esquerdo */
+    background: #ffffff;
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid #27ae60; /* Barra lateral verde de sucesso */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9998;
+    pointer-events: none; /* Não atrapalha o clique no site */
+    
+    /* Estado inicial (escondido) */
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Quando o JS ativar a classe 'active' */
+#sales-notification.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Ícone de check ou sacolinha */
+.popup-icon {
+    background: #e8f6ef;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Texto da Notificação */
+.popup-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.85rem;
+    color: #333;
+    line-height: 1.3;
+    text-align: left; /* Garante que o texto fique à esquerda */
+}
+
+.popup-text b {
+    color: #27ae60;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.popup-text span {
+    color: #777;
+    font-size: 0.75rem;
+}
+
+/* Ajuste Mobile */
+@media (max-width: 480px) {
+    #sales-notification {
+        bottom: 15px;
+        left: 15px;
+        right: 15px; /* Quase largura total no celular */
+        max-width: 300px;
+    }
+}
+
+/* --- NOTIFICAÇÃO DE VENDAS: TAMANHO FIXO (ESTILO MOBILE) --- */
+
+#sales-notification .popup-text {
+    font-family: 'Montserrat', sans-serif;
+    /* Tamanho de texto mobile travado para todas as telas */
+    font-size: 0.85rem !important; 
+    color: #333;
+    line-height: 1.3;
+}
+
+#sales-notification .popup-text b {
+    /* Nome do comprador com fundo destaque suave */
+    font-size: 0.95rem !important;
+    color: #1e8449;
+    font-weight: 800;
+    display: inline-block;
+    background-color: #e8f6ef; /* Fundo verde clarinho apenas no nome */
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+}
+
+#sales-notification .popup-text span {
+    /* "há poucos segundos" */
+    font-size: 0.75rem !important;
+    color: #999;
+    font-weight: 400;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Garante que o container não cresça demais no PC */
+#sales-notification {
+    max-width: 280px !important;
+    padding: 10px 15px !important;
+}
+
+
+/* --- BOTÃO VOLTAR AO TOPO COM PULSAÇÃO --- */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* JS controla a exibição */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+/* Classe de pulsação que será ativada no final da página */
+.pulse-gold {
+    background-color: #f1c40f !important; /* Muda para Dourado/Amarelo Atenção */
+    animation: backToTopPulse 1.5s infinite;
+    box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7) !important;
+}
+
+@keyframes backToTopPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(241, 196, 15, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
+}
+
+/* --- BOTÃO VOLTAR AO TOPO COM PULSAÇÃO DE URGÊNCIA --- */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #27ae60; /* Cor padrão: Verde */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+/* Classe ativada no final da página: VERMELHO ALERTA */
+.pulse-red {
+    background-color: #e74c3c !important; /* Vermelho vibrante */
+    animation: backToTopAlert 1.2s infinite;
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7) !important;
+}
+
+@keyframes backToTopAlert {
+    0% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); 
+    }
+    50% { 
+        transform: scale(1.15); /* Aumenta um pouco mais para chamar atenção */
+        box-shadow: 0 0 0 15px rgba(231, 76, 60, 0); 
+    }
+    100% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); 
+    }
+}
+
+/* --- ESTILO DO BALÃO (TOOLTIP) --- */
+.cart-tooltip {
+    position: absolute;
+    bottom: 70px; /* Fica acima do botão */
+    right: 0;
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: none; /* Escondido por padrão */
+    animation: fadeInTooltip 0.5s ease-out;
+}
+
+/* Triângulo do balão (a pontinha embaixo) */
+.cart-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #e74c3c transparent transparent transparent;
+}
+
+/* Mostrar o balão apenas quando o botão estiver vermelho */
+#backToTop.pulse-red .cart-tooltip {
+    display: block;
+}
+
+@keyframes fadeInTooltip {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste para não cortar o texto em telas pequenas */
+@media (max-width: 480px) {
+    .cart-tooltip {
+        right: -10px;
+        font-size: 0.7rem;
+    }
+}
