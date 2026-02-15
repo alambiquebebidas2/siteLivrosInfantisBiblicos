@@ -5,7 +5,7 @@
 :root {
     --primary: #27ae60;
     --red: #c0392b;
-    --bg-light: #f8fbff;
+    --bg-light: #5abeef;
     --dark: #2d3436;
     --white: #ffffff;
 }
@@ -352,28 +352,28 @@ footer { background: #1a1a1a; color: #636e72; padding: 30px 0; font-size: 0.75re
 
 /* 1. MOBILE (Padrão) - Rosa Bebê */
 body {
-    background-color: #FFF0F5 !important; /* Lavender Blush / Rosa Bebê */
+    background-color: #5abeef !important; /* Lavender Blush / Rosa Bebê */
     transition: background-color 0.5s ease; /* Transição suave ao redimensionar */
 }
 
 /* 2. TABLET (Telas de 768px até 1024px) - Azul Bebê */
 @media (min-width: 768px) {
     body {
-        background-color: #F0F8FF !important; /* Alice Blue / Azul Bebê */
+        background-color: #5abeef !important; /* Alice Blue / Azul Bebê */
     }
 }
 
 /* 3. NOTEBOOK (Telas de 1025px até 1440px) - Verde Bebê */
 @media (min-width: 1025px) {
     body {
-        background-color: #F0FFF0 !important; /* Honeydew / Verde Bebê */
+        background-color: #5abeef !important; /* Honeydew / Verde Bebê */
     }
 }
 
 /* 4. PC / MONITOR GRANDE (Telas acima de 1441px) - Roxo Bebê */
 @media (min-width: 1441px) {
     body {
-        background-color: #F8F4FF !important; /* Magnolia / Roxo Bebê */
+        background-color: #5abeef !important; /* Magnolia / Roxo Bebê */
     }
 }
 
